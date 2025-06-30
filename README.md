@@ -71,7 +71,7 @@ Contributions welcome! Goals listed in order of pressingness.
 
 ## Inner Workings ⚰️
 
-This works in the most straightforward way possible; we reverse engineer the exposed Lua functions, use the mod functionality to read the game state, and write to one of the game state config files using mod hooks, which is then read in by the MCP server. For move and undo inputs, we write Lua files to `commands/` from the MCP server to be read in, if detected, in the `always` mod hook. Perhaps this dooms the project to be brittle and slow forever, but perhaps there is some better way. 
+This works in the dumbest way possible; we reverse engineer the exposed Lua functions, use the mod functionality to read the game state, and write to one of the game state config files using mod hooks, which is then read in by the MCP server. For move and undo inputs, we write Lua files to `commands/` from the MCP server to be read in, if detected, in the `always` mod hook. Perhaps this dooms the project to be brittle and slow forever, but perhaps there is some better way. 
 
 
 ## Credits
