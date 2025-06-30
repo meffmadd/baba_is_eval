@@ -2,7 +2,7 @@
 
 https://github.com/user-attachments/assets/cb6d0d49-b583-46a2-b262-1cf38279a531
 
-We evaluate language models' meta-level reasoning, like ARC-AGI-2 and -3, except we use Hempuli's brilliant puzzle title "Baba Is You". In short, the game is about manipulating the game rules by pushing word blocks around to form or destroy rules. We provide an MCP server to interact with the game in text format. The project is currently in demo stage and not stable. Contributions are welcome, and brave devs with model credits to spare are invited to give it a try.
+We evaluate language models' meta-level reasoning in an interactive setting, like the upcoming ARC-AGI-3, except we use the brilliant puzzle game "Baba Is You". In short, the player manipulates the game rules by pushing word blocks around to form or destroy rules. We provide an MCP server to interact with the game in text format. The project is currently an alpha and not stable. Contributions are welcome, and brave devs with model credits to spare are invited to give it a try.
 
 ## Setup 🔩
 
@@ -67,6 +67,9 @@ Contributions welcome! Goals listed in order of pressingness.
 - [ ] Good latency
 - [ ] Parallel execution
 - [ ] Support for community levels
+
+## Credits
+Baba is You was created by Hempuli. It is a lovely game, go play it yourself!
 
 ## Inner Workings ⚰️
 
