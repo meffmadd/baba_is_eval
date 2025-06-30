@@ -2,7 +2,7 @@
 
 We evaluate language models' meta-reasoning, like ARC-AGI, except we use Hempuli's brilliant puzzle title "Baba Is You". We provide an MCP server to interact with the game in text format. The project is currently in demo stage and not stable. Contributions are welcome, and brave devs with model credits to spare are invited to give it a try.
 
-## Setup
+## Setup 🔩
 
 - Buy "Baba Is You" somewhere, like on Steam: https://store.steampowered.com/app/736260/Baba_Is_You
 - Clone this repo in the `Data` folder
@@ -51,7 +51,7 @@ y/x |  1  |  2  |  3  |  4  |  5
  5  |     |     |     |     |     
 ```
 
-## Roadmap
+## Roadmap 🛣️
 
 Contributions welcome! Goals listed in order of pressingness.
 
@@ -66,6 +66,6 @@ Contributions welcome! Goals listed in order of pressingness.
 - [ ] Parallel execution
 - [ ] Support for community levels
 
-## Inner Workings
+## Inner Workings ⚰️
 
 This works in the most straightforward way possible; we reverse engineer the exposed Lua functions, use the mod functionality to read the game state, and write to one of the game state config files using mod hooks, which is then read in by the MCP server. For move and undo inputs, we write Lua files to `commands/` from the MCP server to be read in, if detected, in the `always` mod hook. Perhaps this dooms the project to be brittle and slow forever, but perhaps there is some better way. 
