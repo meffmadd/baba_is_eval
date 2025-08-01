@@ -6,12 +6,14 @@ function string:split(delimiter)
     return result
 end
 
+LEVEL_WON = "false"
+
 -- At the start of each level, write the current world state to the file.
 table.insert(mod_hook_functions["level_start"], function()
     local gates = MF_findgates()
     for key, gateid in pairs(gates) do
         local gate = mmf.newObject(gateid)
-        for k,v in pairs(gate) do
+        for k, v in pairs(gate) do
             print(k, v)
         end
     end
@@ -47,16 +49,21 @@ table.insert(mod_hook_functions["level_start"], function()
             table.insert(state_data, table.concat(unit_data, "|"))
         end
     end
-    
+
     local state_string = table.concat(state_data, "€")
     MF_store("world", "state", "state", state_string)
-    
+
     -- Store room size information
     MF_store("world", "state", "room_size", roomsizex .. "|" .. roomsizey)
-    
+
     -- Initialize the last processed command file number
     MF_store("world", "file", "last_processed", "0")
-    
+
+    if MF_read("level", "general", "name") ~= "map" then
+        LEVEL_WON = "false"
+    end
+    MF_store("world", "status", "level_won", LEVEL_WON)
+
     print("World state saved.")
 end)
 
@@ -107,13 +114,13 @@ local function check_and_execute_command_file()
         end
         local state_string = table.concat(state_data, "€")
         MF_store("world", "state", "state", state_string)
-        
+
         -- Store room size information
         MF_store("world", "state", "room_size", roomsizex .. "|" .. roomsizey)
-        
+
         -- Store the last processed command file number
         MF_store("world", "file", "last_processed", tostring(last_command_key - 1))
-        
+
         print("World state saved after command.")
     end
 end
@@ -125,12 +132,12 @@ table.insert(mod_hook_functions["always"], function(extra)
         command_check_time = current_time
         check_and_execute_command_file()
     end
-
 end)
 
 table.insert(mod_hook_functions["level_win"], function()
     print("!!! LEVEL WON !!!")
-    if MF_read("level","general","name") ~= "map" then
-        MF_store("world", "status", "level_won", "true")
+    if MF_read("level", "general", "name") ~= "map" then
+        LEVEL_WON = "true"
+        MF_store("world", "status", "level_won", LEVEL_WON)
     end
-end) 
+end)
