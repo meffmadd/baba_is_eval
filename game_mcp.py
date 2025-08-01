@@ -292,7 +292,7 @@ def get_game_state() -> str:
                     cell_content = cell[0][1]  # Just the name
                 else:
                     cell_content = ""
-                
+
                 if len(cell_content) > maxlen:
                     maxlen = len(cell_content)
             col_widths[x] = max(maxlen, 5)  # At least 5 chars wide
@@ -309,7 +309,7 @@ def get_game_state() -> str:
             + "-+-"
             + "-+-".join(["-" * col_widths[x] for x in range(min_x, max_x + 1)])
         )
-        
+
         # Print each row
         for y in range(min_y, max_y + 1):
             row = [f"{y}".ljust(first_col_width)]
@@ -324,7 +324,7 @@ def get_game_state() -> str:
                     cell_content = ""
                 row.append(cell_content.ljust(col_widths[x]))
             lines.append(" | ".join(row))
-            
+
         return "\n".join(lines)
     except Exception as e:
         return f"Error: {str(e)}"
@@ -452,5 +452,5 @@ def leave_level() -> str:
 
 
 if __name__ == "__main__":
-    click_to_focus_game()
+    # click_to_focus_game()
     mcp.run()
